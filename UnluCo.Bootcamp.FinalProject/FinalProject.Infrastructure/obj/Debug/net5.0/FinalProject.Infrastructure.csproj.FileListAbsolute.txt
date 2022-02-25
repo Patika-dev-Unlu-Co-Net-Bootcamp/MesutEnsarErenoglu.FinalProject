@@ -1,0 +1,40 @@
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.deps.json
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\ref\FinalProject.Infrastructure.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.pdb
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.AssemblyInfo.cs
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\ref\FinalProject.Infrastructure.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.pdb
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Domain.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Domain.pdb
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.csproj.CopyComplete
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.runtimeconfig.json
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.runtimeconfig.dev.json
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.genruntimeconfig.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Common.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Common.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.deps.json
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.runtimeconfig.json
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.runtimeconfig.dev.json
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\ref\FinalProject.Infrastructure.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Infrastructure.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Common.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Domain.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Domain.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\bin\Debug\net5.0\FinalProject.Common.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.AssemblyInfo.cs
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.csproj.CopyComplete
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\ref\FinalProject.Infrastructure.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Infrastructure\obj\Debug\net5.0\FinalProject.Infrastructure.genruntimeconfig.cache

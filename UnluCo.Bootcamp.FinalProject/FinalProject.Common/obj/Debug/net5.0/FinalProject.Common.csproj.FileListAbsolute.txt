@@ -1,0 +1,24 @@
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\FinalProject.Common.deps.json
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\FinalProject.Common.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\ref\FinalProject.Common.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\FinalProject.Common.pdb
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.csproj.AssemblyReference.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.AssemblyInfoInputs.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.AssemblyInfo.cs
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.csproj.CoreCompileInputs.cache
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\ref\FinalProject.Common.dll
+C:\Users\o_nea\Desktop\ÜnlüCo Bitirme Projesi\M.E.E.UnluCo.Bootcamp.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\FinalProject.Common.deps.json
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\FinalProject.Common.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\ref\FinalProject.Common.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\bin\Debug\net5.0\FinalProject.Common.pdb
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.csproj.AssemblyReference.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.AssemblyInfoInputs.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.AssemblyInfo.cs
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.csproj.CoreCompileInputs.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\ref\FinalProject.Common.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.Common\obj\Debug\net5.0\FinalProject.Common.pdb
