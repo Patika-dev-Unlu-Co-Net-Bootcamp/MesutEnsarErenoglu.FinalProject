@@ -1,6 +1,4 @@
-﻿
-
-using AutoMapper;
+﻿using AutoMapper;
 using FinalProject.Application.DTOs;
 using FinalProject.Application.Interfaces;
 using FinalProject.Domain.Entities;
@@ -151,7 +149,60 @@ namespace FinalProject.Application.Services
             try
             {
                 var bid = await _unitOfWork.BidRepository.GetbyId(entity.Id);
-                // Todo : Bid güncelleme tamamla
+                bid.BidPrice = entity.BidPrice;
+                bid.Quantity = entity.Quantity;
+                
+                _unitOfWork.BidRepository.Update(bid);
+                await _unitOfWork.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        public async Task MakeBidInActive(int id, bool status)
+        {
+            try
+            {
+                var bid = await _unitOfWork.BidRepository.GetbyId(id);
+                bid.IsActive = status;
+
+                _unitOfWork.BidRepository.Update(bid);
+                await _unitOfWork.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        public async Task MakeBidAccepted(int id, bool status)
+        {
+            try
+            {
+                var bid = await _unitOfWork.BidRepository.GetbyId(id);
+                bid.BidAcceptDate = DateTime.Now;
+                bid.IsAccepted = true;
+
+                _unitOfWork.BidRepository.Update(bid);
+                await _unitOfWork.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task MakeBidSold(int id, bool status)
+        {
+            try
+            {
+                var bid = await _unitOfWork.BidRepository.GetbyId(id);
+                bid.IsSold = status;
+                bid.SoldDate = DateTime.Now;
+
+                bid.IsAccepted = bid.IsAccepted == true ? bid.IsAccepted : true;
+                bid.BidAcceptDate = bid.BidAcceptDate == null ? DateTime.Now : bid.BidAcceptDate;
+
                 _unitOfWork.BidRepository.Update(bid);
                 await _unitOfWork.SaveChangesAsync();
             }

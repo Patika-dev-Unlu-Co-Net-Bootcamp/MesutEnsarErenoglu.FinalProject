@@ -39,8 +39,12 @@ namespace FinalProject.Domain.Entities
         }
 
         public bool IsSold { get; set; } = false;
+        public bool IsAccepted { get; set; } = false;
 
         [DataType(DataType.DateTime)]
         public DateTime? SoldDate { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? BidAcceptDate { get; set; }
     }
 }

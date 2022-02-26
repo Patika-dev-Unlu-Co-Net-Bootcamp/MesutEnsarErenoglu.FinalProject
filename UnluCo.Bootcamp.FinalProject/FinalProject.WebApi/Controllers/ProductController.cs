@@ -18,11 +18,28 @@ namespace FinalProject.WebApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly IAppUserService _userService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, IAppUserService userService)
         {
             _productService = productService;
+            _userService = userService;
         }
+
+        [HttpGet("getallofferdable")]
+        public async Task<IActionResult> GetOfferdableProducts()
+        {
+            try
+            {
+                var products = await _productService.GetAllOfferdable();
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("getall")]
         public async Task<IActionResult> GetProducts()
         {
@@ -82,6 +99,26 @@ namespace FinalProject.WebApi.Controllers
                     return BadRequest(new { message = "Böyle bir id bulunmuyor!" });
                 }
 
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("getproductsByUser/{id}")]
+        public async Task<IActionResult> GetProductByUserId(string id)
+        {
+            try
+            {
+                var result = await _userService.AnybyId(id);
+                if (result)
+                {
+                    var products = _productService.GetbyUserId(id);
+
+                    return Ok(products);
+                }
+                return BadRequest("Böyle bir kullanıcı bulunamadı!");
             }
             catch (Exception ex)
             {

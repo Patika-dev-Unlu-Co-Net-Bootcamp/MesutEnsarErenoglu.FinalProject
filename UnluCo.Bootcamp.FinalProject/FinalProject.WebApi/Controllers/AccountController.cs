@@ -50,6 +50,7 @@ namespace FinalProject.WebApi.Controllers
 
                     await _userService.Add(newUser);
                     return Ok();
+                    // Todo : Kullanıcıya başarılı maili gönder
                 }
                 return BadRequest(userModel);
             }
@@ -81,6 +82,51 @@ namespace FinalProject.WebApi.Controllers
                     return Ok(token);
                 }
                 return BadRequest("Kullanıcı bilgileri hatalı!");
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        [HttpPost("forgotpassword")]
+        public async Task<IActionResult> ForgotPassword([FromQuery] string email)
+        {
+            try
+            {
+                var result = await _userService.AnybyEmail(email);
+                if (result)
+                {
+                    var key = _userService.GetUsersKey(email);
+                    // Todo: Send User Email https://localhost:44353/api/accounts/changepassword/{key}
+                }
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        [HttpPost("changepassword/{key}")]
+        public async Task<IActionResult> ChangeUserPassword(Guid key,[FromBody] ChangeUserPassword userModel)
+        {
+            try
+            {
+                var user = _userService.GetbyKey(key);
+                if (user == null)
+                {
+                    return BadRequest("Böyle bir kullanıcı bulunamadı!");
+                }
+                if (ModelState.IsValid)
+                {
+                    var result = await _userService.ChangePassword(user.Email, userModel.newPassword);
+
+                    if (result)
+                    {
+                        return Ok("Şifreniz başarıyla değiştirildi!");
+                    }
+                    return BadRequest("İşlem sırasında bir hata oluştu!");
+                }
+                return BadRequest("Giriş yapılan şifreler birbiriyle aynı olmalıdır!");
             }
             catch (Exception ex)
             {

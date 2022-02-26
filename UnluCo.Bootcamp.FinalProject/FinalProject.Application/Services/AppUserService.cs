@@ -28,6 +28,7 @@ namespace FinalProject.Application.Services
             {
                 var appUser = _mapper.Map<AppUser>(entity);
                 appUser.Id = Guid.NewGuid().ToString();
+                appUser.ActivationKey = Guid.NewGuid();
                 appUser.Phone = appUser.PhoneNumber;
                 var result = await _userManager.CreateAsync(appUser,entity.Password);
                 if (result.Succeeded)
@@ -71,6 +72,29 @@ namespace FinalProject.Application.Services
                 }
                 return true;
 
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<bool> ChangePassword(string email, string newPassword)
+        {
+            try
+            {
+                var user = await  _userManager.FindByIdAsync(email);
+                var reponse = await _userManager.RemovePasswordAsync(user);
+                if (!reponse.Succeeded)
+                {
+                    throw new InvalidOperationException("Bir hata oluştu!");
+                }
+                var result = await _userManager.AddPasswordAsync(user, newPassword);
+                if (result.Succeeded)
+                {
+                    return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {
@@ -175,8 +199,6 @@ namespace FinalProject.Application.Services
                 throw new InvalidOperationException(ex.Message);
             }
         }
-
-
         public async Task<AppUserDto> GetbyId(string Id)
         {
             try
@@ -190,6 +212,40 @@ namespace FinalProject.Application.Services
 
                 return appUserDto;
 
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public AppUserDto GetbyKey(Guid key)
+        {
+            try
+            {
+                var user = _userManager.Users.SingleOrDefault(x => x.ActivationKey == key);
+                if (user != null)
+                {
+                    return _mapper.Map<AppUserDto>(user);
+                }
+                throw new InvalidOperationException("Böyle bir kullanıcı bulunmamaktadır!");
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<Guid> GetUsersKey(string email)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user != null)
+                {
+                    return user.ActivationKey;
+                }
+                throw new InvalidOperationException("Böyle bir kullanıcı bulunamadı!");
             }
             catch (Exception ex)
             {
@@ -221,6 +277,7 @@ namespace FinalProject.Application.Services
 
         public Task Update(AppUserDto entity)
         {
+            // Todo : User güncelleme tamamla
             throw new NotImplementedException();
         }
 

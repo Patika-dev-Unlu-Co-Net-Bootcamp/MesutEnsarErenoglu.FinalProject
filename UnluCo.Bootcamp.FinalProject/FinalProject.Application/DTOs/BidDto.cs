@@ -9,7 +9,7 @@ namespace FinalProject.Application.DTOs
     {
 
         
-        public Guid BidderUserId { get; set; }
+        public string BidderUserId { get; set; }
         public AppUserDto BidderAppUser { get; set; }
 
   
@@ -37,6 +37,7 @@ namespace FinalProject.Application.DTOs
         }
 
         public bool IsSold { get; set; } = false;
+        public bool IsAccepted { get; set; } = false;
 
         [DataType(DataType.DateTime)]
         public DateTime? SoldDate { get; set; }

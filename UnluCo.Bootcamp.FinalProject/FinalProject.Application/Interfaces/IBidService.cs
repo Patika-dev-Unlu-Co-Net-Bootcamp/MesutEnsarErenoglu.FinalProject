@@ -20,5 +20,8 @@ namespace FinalProject.Application.Interfaces
         Task<BidDto> GetbyId(int Id);
         Task<List<BidDto>> GetbyFilter(Expression<Func<BidDto, bool>> filter);
         Task<bool> Any(int id);
+        Task MakeBidInActive(int id, bool status);
+        Task MakeBidAccepted(int id, bool status);
+        Task MakeBidSold(int id, bool status);
     }
 }

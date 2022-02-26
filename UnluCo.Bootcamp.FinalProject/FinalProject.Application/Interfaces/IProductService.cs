@@ -19,5 +19,8 @@ namespace FinalProject.Application.Interfaces
         Task<List<ProductDto>> GetbyFilter(Expression<Func<ProductDto, bool>> filter);
         Task<bool> Any(int id);
         Task UpdateProductImage(ProductDto entity);
+        Task<bool> IsOfferdable(int id);
+        Task<List<ProductDto>> GetbyUserId(string id);
+        Task<List<ProductDto>> GetAllOfferdable();
     }
 }

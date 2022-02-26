@@ -6,5 +6,6 @@ namespace FinalProject.Domain.Interfaces
 {
     public interface IBidRepository:IRepository<Bid>
     {
+
     }
 }

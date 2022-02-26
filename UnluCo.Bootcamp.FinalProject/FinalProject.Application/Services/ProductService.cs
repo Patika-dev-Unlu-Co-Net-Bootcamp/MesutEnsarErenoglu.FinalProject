@@ -102,6 +102,20 @@ namespace FinalProject.Application.Services
             }
         }
 
+        public async Task<List<ProductDto>> GetAllOfferdable()
+        {
+            try
+            {
+                var products = await _unitOfWork.ProductRepository.GetAllOfferdable();
+                var list = _mapper.Map<List<ProductDto>>(products);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
         public async Task<List<ProductDto>> GetbyFilter(Expression<Func<ProductDto, bool>> filter)
         {
             try
@@ -123,6 +137,33 @@ namespace FinalProject.Application.Services
             {
                 var product = await _unitOfWork.ProductRepository.GetbyId(Id);
                 var result = _mapper.Map<ProductDto>(product);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<ProductDto>> GetbyUserId(string id)
+        {
+            try
+            {
+                var products = await _unitOfWork.ProductRepository.GetbyUserId(id);
+                var list = _mapper.Map<List<ProductDto>>(products);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<bool> IsOfferdable(int id)
+        {
+            try
+            {
+                var result = await _unitOfWork.ProductRepository.IsOfferdable(id);
                 return result;
             }
             catch (Exception ex)
