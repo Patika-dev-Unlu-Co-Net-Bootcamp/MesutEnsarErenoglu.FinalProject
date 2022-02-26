@@ -30,6 +30,7 @@ namespace FinalProject.Application.Services
                 appUser.Id = Guid.NewGuid().ToString();
                 appUser.ActivationKey = Guid.NewGuid();
                 appUser.Phone = appUser.PhoneNumber;
+                appUser.IsActive = true;
                 var result = await _userManager.CreateAsync(appUser,entity.Password);
                 if (result.Succeeded)
                 {
@@ -83,7 +84,7 @@ namespace FinalProject.Application.Services
         {
             try
             {
-                var user = await  _userManager.FindByIdAsync(email);
+                var user = await  _userManager.FindByEmailAsync(email);
                 var reponse = await _userManager.RemovePasswordAsync(user);
                 if (!reponse.Succeeded)
                 {

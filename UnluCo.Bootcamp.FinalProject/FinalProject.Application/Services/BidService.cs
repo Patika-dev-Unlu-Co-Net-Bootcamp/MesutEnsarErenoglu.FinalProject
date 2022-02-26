@@ -199,12 +199,97 @@ namespace FinalProject.Application.Services
                 var bid = await _unitOfWork.BidRepository.GetbyId(id);
                 bid.IsSold = status;
                 bid.SoldDate = DateTime.Now;
+                bid.IsActive = false;
 
                 bid.IsAccepted = bid.IsAccepted == true ? bid.IsAccepted : true;
                 bid.BidAcceptDate = bid.BidAcceptDate == null ? DateTime.Now : bid.BidAcceptDate;
 
                 _unitOfWork.BidRepository.Update(bid);
                 await _unitOfWork.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<BidDto>> GetBidsbyProductOwnerId(string id)
+        {
+            try
+            {
+                var bids = await _unitOfWork.BidRepository.GetBidsbyProductOwnerId(id);
+                var bidDtos = _mapper.Map<List<BidDto>>(bids);
+                return bidDtos;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<BidDto>> GetBidsbyProductId(int id)
+        {
+            try
+            {
+                var bids = await _unitOfWork.BidRepository.GetBidsbyProductId(id);
+                var bidDtos = _mapper.Map<List<BidDto>>(bids);
+                return bidDtos;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<BidDto>> GetBidsbyBidderId(string id)
+        {
+            try
+            {
+                var bids = await _unitOfWork.BidRepository.GetBidsbyBidderId(id);
+                var bidDtos = _mapper.Map<List<BidDto>>(bids);
+                return bidDtos;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<BidDto>> SoldBids()
+        {
+            try
+            {
+                var bids = await _unitOfWork.BidRepository.SoldBids();
+                var bidDtos = _mapper.Map<List<BidDto>>(bids);
+                return bidDtos;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<BidDto>> SoldBidsbyProductOwnerId(string id)
+        {
+            try
+            {
+                var bids = await _unitOfWork.BidRepository.SoldBidsbyProductOwnerId(id);
+                var bidDtos = _mapper.Map<List<BidDto>>(bids);
+                return bidDtos;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        public async Task<List<BidDto>> SoldBidsbyBidderId(string id)
+        {
+            try
+            {
+                var bids = await _unitOfWork.BidRepository.SoldBidsbyBidderId(id);
+                var bidDtos = _mapper.Map<List<BidDto>>(bids);
+                return bidDtos;
             }
             catch (Exception ex)
             {

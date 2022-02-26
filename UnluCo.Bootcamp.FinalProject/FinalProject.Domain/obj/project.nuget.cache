@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4464XEd6EFbdd7PQpSaiDLq6ZxXEaYYYq1T1EAAQm+fwd5v+F+y+HQDRFUsYRpWpkZrajbIx7psuS86wmKvS6g==",
+  "dgSpecHash": "3BliddTOYGN2toJ2pnERbNxe9OrkLNB29lkm1a+h+QoDFAOZ4GHWLA5o4cD/ha7DOa5wgeRy6Dd51aAZZMsDvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\o_nea\\source\\repos\\Patika-dev-Unlu-Co-Net-Bootcamp\\MesutEnsarErenoglu.FinalProject\\UnluCo.Bootcamp.FinalProject\\FinalProject.Domain\\FinalProject.Domain.csproj",
   "expectedPackageFiles": [
@@ -22,9 +22,12 @@
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\o_nea\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+    "C:\\Users\\o_nea\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
   ],
   "logs": []
 }

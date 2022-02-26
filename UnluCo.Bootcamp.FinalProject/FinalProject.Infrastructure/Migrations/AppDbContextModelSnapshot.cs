@@ -134,6 +134,9 @@ namespace FinalProject.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime?>("BidAcceptDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("BidDate")
                         .HasColumnType("datetime2");
 
@@ -157,6 +160,9 @@ namespace FinalProject.Infrastructure.Migrations
                     b.Property<string>("CreatedUserName")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");

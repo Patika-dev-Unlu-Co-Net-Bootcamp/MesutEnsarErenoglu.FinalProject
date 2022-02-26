@@ -53,6 +53,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet("getallactive")]
         public async Task<IActionResult> GetAllActiveProducts()
         {
@@ -66,6 +67,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpGet("getallinactive")]
         public async Task<IActionResult> GetAllInActiveProducts()
         {
@@ -148,6 +150,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpDelete("removeroduct/{id}")]
         public async Task<IActionResult> RemoveProduct(int id)
         {
@@ -170,6 +173,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> AddProduct([FromBody] AddProductModel productModel)
         {
@@ -201,6 +205,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPost("uploadproductimage/{id}")]
         public async Task<IActionResult> UploadProductImage(int id, IFormFile formFile)
         {
@@ -272,6 +277,7 @@ namespace FinalProject.WebApi.Controllers
             }
             return BadRequest("Böyle bir ürün bulunmuyor!");
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateColor(int id, [FromBody] UpdateProductModel productModel)
         {

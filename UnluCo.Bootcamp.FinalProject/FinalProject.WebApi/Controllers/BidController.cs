@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/bids")]
     [ApiController]
     public class BidController : ControllerBase
     {
@@ -59,8 +59,46 @@ namespace FinalProject.WebApi.Controllers
             }
         }
 
+        [HttpPost("buyproduct/{id}")]
+        public async Task<IActionResult> BuyProduct(int id,[FromBody] SoldModel bidModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resultUser = await _userService.AnybyId(bidModel.BidderUserId);
+                    if (!resultUser)
+                    {
+                        return BadRequest("Böyle bir kullanıcı bulunamadı!");
+                    }
+                    var product = await _productService.GetbyId(id);
+                    if (product == null)
+                    {
+                        return BadRequest("Böyle bir ürün bulunamadı!");
+                    }
+                    BidDto newBid = new BidDto();
+                    newBid.ProductId = product.Id;
+                    newBid.BidderUserId = bidModel.BidderUserId;
+                    newBid.BidPrice = product.Price;
+                    newBid.Quantity = bidModel.Quantity;
+                    newBid.BidDate = DateTime.Now;
+                    newBid.IsActive = false;
+                    newBid.IsSold = true;
+                    newBid.SoldDate = DateTime.Now;
+                    await _bidService.Add(newBid);
+
+                    return Ok("Ürün satışı gerçekleşti!");
+                }
+                return BadRequest("Ürün satışa uygun değil!");
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
         [HttpPut("updatebid/{id}")]
-        public async Task<IActionResult> UpdateBid(int id,[FromBody] AddBidModel bidModel)
+        public async Task<IActionResult> UpdateBid(int id,[FromBody] UpdateBidModel bidModel)
         {
             try
             {
@@ -145,7 +183,136 @@ namespace FinalProject.WebApi.Controllers
             }
         }
 
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                var bids = await _bidService.GetAll();
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
 
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        [HttpGet("getallactive")]
+        public async Task<IActionResult> GetAllActive()
+        {
+            try
+            {
+                var bids = await _bidService.GetAllActive();
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        [HttpGet("getallinactive")]
+        public async Task<IActionResult> GetAllInActive()
+        {
+            try
+            {
+                var bids = await _bidService.GetAllInActive();
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        [HttpGet("getbidsbyproductownerid/{id}")]
+        public async Task<IActionResult> GetBidsbyProductOwnerId(string id)
+        {
+            try
+            {
+                var bids = await _bidService.GetBidsbyProductOwnerId(id);
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        [HttpGet("getbidsbyproductid/{id}")]
+        public async Task<IActionResult> GetBidsbyProductId(int id)
+        {
+            try
+            {
+                var bids = await _bidService.GetBidsbyProductId(id);
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        [HttpGet("getbidsbybidderid/{id}")]
+        public async Task<IActionResult> GetBidsbyBidderId(string id)
+        {
+            try
+            {
+                var bids = await _bidService.GetBidsbyBidderId(id);
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+        [HttpGet("getsoldbids")]
+        public async Task<IActionResult> GetSoldBids()
+        {
+            try
+            {
+                var bids = await _bidService.SoldBids();
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        [HttpGet("soldbidsbyproductownerid/{id}")]
+        public async Task<IActionResult> GetSoldBidsbyProductOwnerId(string id)
+        {
+            try
+            {
+                var bids = await _bidService.SoldBidsbyProductOwnerId(id);
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        [HttpGet("soldbidsbybidderid/{id}")]
+        public async Task<IActionResult> GetSoldBidsbyBidderId(string id)
+        {
+            try
+            {
+                var bids = await _bidService.SoldBidsbyBidderId(id);
+                return Ok(bids);
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
 
     }
 }

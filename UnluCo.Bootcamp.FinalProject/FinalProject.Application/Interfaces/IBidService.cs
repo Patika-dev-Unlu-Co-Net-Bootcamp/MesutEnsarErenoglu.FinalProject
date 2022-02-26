@@ -23,5 +23,12 @@ namespace FinalProject.Application.Interfaces
         Task MakeBidInActive(int id, bool status);
         Task MakeBidAccepted(int id, bool status);
         Task MakeBidSold(int id, bool status);
+
+        Task<List<BidDto>> GetBidsbyProductOwnerId(string id);
+        Task<List<BidDto>> GetBidsbyProductId(int id);
+        Task<List<BidDto>> GetBidsbyBidderId(string id);
+        Task<List<BidDto>> SoldBids();
+        Task<List<BidDto>> SoldBidsbyProductOwnerId(string id);
+        Task<List<BidDto>> SoldBidsbyBidderId(string id);
     }
 }

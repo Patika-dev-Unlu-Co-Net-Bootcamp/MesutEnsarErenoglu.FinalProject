@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "OCLoEebZtOixfZ/Yop7uHqBAMOCRQoMrMhmdJkfp4SdIzKNb6Z0XgnXzrSEsH0LSltmXHT/IdaUmB9JoUAVoog==",
+  "dgSpecHash": "0R/NW/IlZ0zXxJxzX4rm1y6Vw68/D3KHhMWvr+r5OarbcJeJlxlMfwtXDIc4IKmS25Fl0muNaFxqo1kTKN3nFA==",
   "success": true,
   "projectFilePath": "C:\\Users\\o_nea\\source\\repos\\Patika-dev-Unlu-Co-Net-Bootcamp\\MesutEnsarErenoglu.FinalProject\\UnluCo.Bootcamp.FinalProject\\FinalProject.Common\\FinalProject.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\o_nea\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+  ],
   "logs": []
 }

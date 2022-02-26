@@ -1,6 +1,8 @@
 ﻿using FinalProject.Application.DTOs;
 using FinalProject.Application.Interfaces;
 using FinalProject.Application.Token;
+using FinalProject.Common.Email;
+using FinalProject.Common.RabbitMQ;
 using FinalProject.WebApi.Models.User;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -30,7 +32,7 @@ namespace FinalProject.WebApi.Controllers
                 {
                     var result = await _userService.AnybyEmail(userModel.Email);
 
-                    if (!result)
+                    if (result)
                     {
                         return BadRequest("Bu emaile sahip bir kullanıcı bulunuyor!");
                     }
@@ -49,7 +51,17 @@ namespace FinalProject.WebApi.Controllers
                     newUser.UserName = userModel.Email;
 
                     await _userService.Add(newUser);
-                    return Ok();
+
+                    EmailModel emailModel = new EmailModel();
+                    emailModel.SenderEmail = "ensarerenoglu@hotmail.com";
+                    emailModel.ReceiverEmail = newUser.Email;
+                    emailModel.SenderTitle = "Site";
+                    emailModel.Subject = "Sitemize Hoşgeldiniz!";
+                    emailModel.Body = $"Sayın {newUser.FullName}, Üyeliğiniz başarıyla gerçekleştirilmiş olup iyi alışverişler dileriz.";
+                    RabbitMQReceiver rabbitMQReceiver = new RabbitMQReceiver();
+                    rabbitMQReceiver.Send(emailModel);
+
+                    return Ok("Kullanıcı kaydı başarılı!");
                     // Todo : Kullanıcıya başarılı maili gönder
                 }
                 return BadRequest(userModel);
@@ -63,6 +75,8 @@ namespace FinalProject.WebApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginUserModel userModel)
         {
+            RabbitMQConsumer rabbitMQConsumer = new RabbitMQConsumer();
+            rabbitMQConsumer.Consume();
             try
             {
                 if (ModelState.IsValid)
