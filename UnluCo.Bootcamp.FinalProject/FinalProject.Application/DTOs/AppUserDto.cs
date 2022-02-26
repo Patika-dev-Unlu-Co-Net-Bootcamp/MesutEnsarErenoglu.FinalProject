@@ -6,7 +6,7 @@ namespace FinalProject.Application.DTOs
 {
     public class AppUserDto 
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [EmailAddress]

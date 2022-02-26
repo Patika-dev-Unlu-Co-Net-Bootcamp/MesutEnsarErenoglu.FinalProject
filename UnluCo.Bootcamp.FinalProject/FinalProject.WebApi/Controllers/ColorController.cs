@@ -1,6 +1,7 @@
 ﻿using FinalProject.Application.DTOs;
 using FinalProject.Application.Interfaces;
 using FinalProject.WebApi.Models.Color;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace FinalProject.WebApi.Controllers
 {
     [Route("api/colors")]
     [ApiController]
+    [Authorize]
     public class ColorController : ControllerBase
     {
         private readonly IColorService _colorService;

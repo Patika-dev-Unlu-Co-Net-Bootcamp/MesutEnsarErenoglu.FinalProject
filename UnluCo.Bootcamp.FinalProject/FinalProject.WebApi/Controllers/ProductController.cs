@@ -1,28 +1,27 @@
-﻿using AutoMapper;
+﻿
 using FinalProject.Application.DTOs;
 using FinalProject.Application.Interfaces;
 using FinalProject.WebApi.Common.ProductImage;
 using FinalProject.WebApi.Models.Product;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace FinalProject.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/products")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService,IMapper mapper)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
-            _mapper = mapper;
         }
         [HttpGet("getall")]
         public async Task<IActionResult> GetProducts()
@@ -153,8 +152,7 @@ namespace FinalProject.WebApi.Controllers
                     newProduct.UnitsInStock = productModel.UnitsInStock;
                     newProduct.UsageStatus = productModel.UsageStatus;
                     newProduct.ImagePath = "noimage.jpg";
-                    newProduct.AppUserId = "d04a5b01-7f01-4ab4-8543-82831bfe692e";
-                    // Todo: AppUser Service tamamlandığında güncellenecek
+                    newProduct.AppUserId = productModel.AppUserId;
 
                     await _productService.Add(newProduct);
                     return Ok();

@@ -1,27 +1,26 @@
 ﻿
-using AutoMapper;
+
 using FinalProject.Application.DTOs;
 using FinalProject.Application.Interfaces;
 using FinalProject.WebApi.Models.SubCategory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FinalProject.WebApi.Controllers
 {
     [Route("api/subcategories")]
     [ApiController]
+    [Authorize]
     public class SubCategoryController : ControllerBase
     {
         private readonly ISubCategoryService _subCategoryService;
-        private readonly IMapper _mapper;
         private readonly ICategoryService _categoryService;
 
-        public SubCategoryController(ISubCategoryService subCategoryService,IMapper mapper,ICategoryService categoryService)
+        public SubCategoryController(ISubCategoryService subCategoryService,ICategoryService categoryService)
         {
             _subCategoryService = subCategoryService;
-            _mapper = mapper;
             _categoryService = categoryService;
         }
 

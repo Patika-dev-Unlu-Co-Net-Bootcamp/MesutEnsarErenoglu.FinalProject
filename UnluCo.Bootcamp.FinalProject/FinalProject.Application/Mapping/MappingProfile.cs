@@ -21,10 +21,10 @@ namespace FinalProject.Application.Mapping
 
             CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.SubCategory, act => act.Ignore())
-                .ForMember(dest => dest.AppUser, act => act.Ignore())
                 .ReverseMap();
 
             CreateMap<AppUser, AppUserDto>()
+                .ForMember(dest =>dest.Products, act => act.Ignore())
                 .ReverseMap();
 
             CreateMap<Bid, BidDto>()

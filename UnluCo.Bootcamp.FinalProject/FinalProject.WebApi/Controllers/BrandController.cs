@@ -1,14 +1,16 @@
 ﻿using FinalProject.Application.DTOs;
 using FinalProject.Application.Interfaces;
 using FinalProject.WebApi.Models.Brand;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
 namespace FinalProject.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/brands")]
     [ApiController]
+    [Authorize]
     public class BrandController : ControllerBase
     {
         private readonly IBrandService _brandService;

@@ -9,7 +9,7 @@ namespace FinalProject.Infrastructure.Context
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            //ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            
         }
 
         public DbSet<Bid> Bids { get; set; }
