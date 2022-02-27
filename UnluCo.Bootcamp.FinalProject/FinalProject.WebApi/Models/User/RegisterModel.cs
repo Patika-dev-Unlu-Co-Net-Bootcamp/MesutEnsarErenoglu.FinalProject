@@ -6,18 +6,13 @@ using System.Text.Json.Serialization;
 
 namespace FinalProject.WebApi.Models.User
 {
-    public class AddAppUserModel
+    public class RegisterModel
     {
 
         [Required(ErrorMessage ="Email adresi gereklidir!")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage ="Email adresi uygun formatta girilmelidir!")]
         [JsonPropertyName("email")]
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Telefon numarası gereklidir")]
-        [Phone]
-        [JsonPropertyName("phonenumber")]
-        public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Şifre zorunludur!")]
         [Password(ErrorMessage = "Şifreniz en az bir büyük harf, bir küçük harf ve bir sayı içermeli, aynı zamanda en az 8 karakter olmalıdır!")]
@@ -34,6 +29,16 @@ namespace FinalProject.WebApi.Models.User
         [JsonPropertyName("lastname")]
         public string LastName { get; set; }
 
+        [Required(ErrorMessage = "Doğum tarihi giriş yapmanız gereklidir!")]
+        [DataType(DataType.Date)]
+        [JsonPropertyName("birthdate")]
+        public DateTime BirthDate { get; set; }
+
+        [Required(ErrorMessage = "Telefon numarası gereklidir")]
+        [Phone(ErrorMessage ="Telefon numarası uygun formatta girilmelidir!")]
+        [JsonPropertyName("phonenumber")]
+        public string PhoneNumber { get; set; }
+
         [Required(ErrorMessage ="Adres girişi zorunludur!")]
         [MaxLength(250, ErrorMessage = "250 karakterden fazla olamaz")]
         [JsonPropertyName("address")]
@@ -48,16 +53,6 @@ namespace FinalProject.WebApi.Models.User
         [MaxLength(50, ErrorMessage = "50 karakterden fazla olmaz")]
         [JsonPropertyName("region")]
         public string Region { get; set; }
-
-        [Required(ErrorMessage = "Doğum tarihi giriş yapmanız gereklidir!")]
-        [DataType(DataType.Date)]
-        [JsonPropertyName("birthdate")]
-        public DateTime BirthDate { get; set; }
-
-        [Required]
-        [JsonPropertyName("gender")]
-        public bool? Gender { get; set; } // True Male- False Female
-
 
     }
 }

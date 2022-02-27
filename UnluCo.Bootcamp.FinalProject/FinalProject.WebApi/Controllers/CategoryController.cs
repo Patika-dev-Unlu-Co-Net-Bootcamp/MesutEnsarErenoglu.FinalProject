@@ -11,7 +11,7 @@ namespace FinalProject.WebApi.Controllers
 {
     [Route("api/categories")]
     [ApiController]
-    
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;

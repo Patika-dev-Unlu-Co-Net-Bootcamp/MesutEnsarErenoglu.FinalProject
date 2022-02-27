@@ -1,0 +1,46 @@
+﻿@page "/login"
+@inject IAccountClientService accountService
+@inject NavigationManager navManager
+
+
+<div class="col-sm-6 mx-auto">
+    <h3 class="text-center">
+        Giriş Yap
+    </h3>
+    <EditForm Model="@UserModel" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator />
+
+        <div class="mb-3">
+            <label for="email" class="col-form-label">Mail Adresi</label>
+            <InputText id="email" @bind-Value="UserModel.Email" class="form-control" />
+            <ValidationMessage For="() => UserModel.Email" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="password" class="col-form-label">Şifre</label>
+            <InputText type="password" @bind-Value="@UserModel.Password" class="form-control" />
+            <ValidationMessage For="()=>UserModel.Password" class="invalid-feedback" />
+        </div>
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </EditForm>
+</div>
+
+
+@code {
+    public LoginUserModel UserModel { get; set; } = new LoginUserModel();
+
+    private async Task Submit()
+    {
+        var result = await accountService.Login(UserModel);
+
+        if (result)
+        {
+
+            navManager.NavigateTo("/");
+        }
+        else
+        {
+            navManager.NavigateTo("/error");
+        }
+
+    }
+}

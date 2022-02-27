@@ -1,5 +1,6 @@
 ﻿@page "/subcategory/{id}"
 @inject IHttpClientFactory ClientFactory
+@inject ProtectedLocalStorage localStorage
 
 <h3>SubCategory</h3>
 
@@ -44,9 +45,14 @@ else
     {
         var client = ClientFactory.CreateClient();
 
-        var url = "https://localhost:44353/api/subcategories/" + $"{Id}";
+        var url = $"https://localhost:44353/api/subcategories/{Id}";
+
         var request = new HttpRequestMessage(HttpMethod.Get,
         url);
+
+        var token = await localStorage.GetAsync<string>("token");
+
+        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
 
         var response = await client.SendAsync(request);
 

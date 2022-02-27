@@ -16,8 +16,10 @@ namespace FinalProject.Common.PasswordValidator
             if (str.Any(x => char.IsDigit(x))
                 && str.Any(x => char.IsUpper(x))
                 && str.Any(x => char.IsLower(x))
-                && str.Length >= 8 
-                && !str.Contains(" "))
+                && str.Length >= 8
+                && str.Length <= 20
+                && !str.Contains(" ")
+                )
             {
                 result = true;
             }

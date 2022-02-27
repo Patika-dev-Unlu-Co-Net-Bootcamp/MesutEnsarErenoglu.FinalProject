@@ -24,7 +24,7 @@ namespace FinalProject.WebApi.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] AddAppUserModel userModel)
+        public async Task<IActionResult> Register([FromBody] RegisterModel userModel)
         {
             try
             {
@@ -46,7 +46,6 @@ namespace FinalProject.WebApi.Controllers
                     newUser.Address = userModel.Address;
                     newUser.BirthDate = userModel.BirthDate;
                     newUser.City = userModel.City;
-                    newUser.Gender = userModel.Gender;
                     newUser.Region = userModel.Region;
                     newUser.UserName = userModel.Email;
 
@@ -61,7 +60,7 @@ namespace FinalProject.WebApi.Controllers
                     RabbitMQReceiver rabbitMQReceiver = new RabbitMQReceiver();
                     rabbitMQReceiver.Send(emailModel);
 
-                    return Ok("Kullanıcı kaydı başarılı!");
+                    return Ok(new {message = "Kullanıcı kaydı başarılı!" });
                     
                 }
                 return BadRequest(userModel);
@@ -101,27 +100,24 @@ namespace FinalProject.WebApi.Controllers
             }
         }
         [HttpPost("forgotpassword")]
-        public async Task<IActionResult> ForgotPassword([FromQuery] string email)
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordModel model)
         {
             try
             {
-                var result = await _userService.AnybyEmail(email);
+                var result = await _userService.AnybyEmail(model.Email);
                 if (result)
                 {
-                    string key = await _userService.GetUsersKey(email);
+                    string key = await _userService.GetUsersKey(model.Email);
 
                     EmailModel emailModel = new EmailModel();
                     emailModel.SenderEmail = "unlucofinalprojectmee@gmail.com";
-                    emailModel.ReceiverEmail = email;
+                    emailModel.ReceiverEmail = model.Email;
                     emailModel.SenderTitle = "UnluCoFinalProject";
                     emailModel.Subject = "Şifre Yenileme";
-                    emailModel.Body =  
-                        $"Sayın üyemiz, şifrenizi yenilemek için bağlantıya tıklayınız https://localhost:44353/api/accounts/changepassword/" + $"{key}";
+                    emailModel.Body =  $"Sayın üyemiz, şifrenizi yenilemek için bağlantıya tıklayınız {model.URL}{key}";
                     RabbitMQReceiver rabbitMQReceiver = new RabbitMQReceiver();
                     rabbitMQReceiver.Send(emailModel);
 
-
-                    // Todo: Send User Email 
                 }
                 return Ok();
             }

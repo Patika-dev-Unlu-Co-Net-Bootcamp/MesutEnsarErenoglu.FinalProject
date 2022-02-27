@@ -1,5 +1,6 @@
 ﻿@page "/categories"
 @inject IHttpClientFactory ClientFactory
+@inject ProtectedLocalStorage localStorage
 
 <h3>Categories</h3>
 
@@ -36,6 +37,10 @@ else
 
         var request = new HttpRequestMessage(HttpMethod.Get,
         "https://localhost:44353/api/categories/getallactive");
+
+        var token = await localStorage.GetAsync<string>("token");
+
+        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
 
         var response = await client.SendAsync(request);
 

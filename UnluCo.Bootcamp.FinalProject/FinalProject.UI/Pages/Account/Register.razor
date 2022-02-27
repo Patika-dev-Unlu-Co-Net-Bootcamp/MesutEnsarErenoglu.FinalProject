@@ -1,0 +1,79 @@
+﻿@page "/register"
+@inject IAccountClientService accountService
+@inject NavigationManager navManager
+
+<div class="col-sm-6 mx-auto">
+    <h3 class="text-center">
+        Kayıt Ol
+    </h3>
+    <EditForm Model="@UserModel" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator />
+
+        <div class="mb-3">
+            <label for="email" class="col-form-label">Mail Adresi</label>
+            <InputText id="email" @bind-Value="UserModel.Email" class="form-control" />
+            <ValidationMessage For="() => UserModel.Email" />
+        </div>
+        <div class="mb-3">
+            <label for="password" class="col-form-label">Şifre</label>
+            <InputText id="password" type="password" @bind-Value="@UserModel.Password" class="form-control" />
+            <ValidationMessage For="()=>UserModel.Password" />
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="col-form-label">İsim</label>
+            <InputText id="firstName" @bind-Value="@UserModel.FirstName" class="form-control" />
+            <ValidationMessage For="()=>UserModel.FirstName" />
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="col-form-label">Soyisim</label>
+            <InputText id="lastName" @bind-Value="@UserModel.LastName" class="form-control" />
+            <ValidationMessage For="()=>UserModel.LastName" />
+        </div>
+        <div class="mb-3">
+            <label for="birthDate" class="col-form-label">Doğum Tarihi</label>
+            <InputDate id="birthDate" @bind-Value="@UserModel.BirthDate" class="form-control" />
+            <ValidationMessage For="()=>UserModel.BirthDate" />
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="col-form-label">Telefon Numarası</label>
+            <InputText type="tel" id="phone" @bind-Value="@UserModel.PhoneNumber" class="form-control" />
+            <ValidationMessage For="()=>UserModel.PhoneNumber" />
+        </div>
+        <div class="mb-3">
+            <label for="address" class="col-form-label">Adres</label>
+            <InputTextArea id="address" @bind-Value="@UserModel.Address" class="form-control" />
+            <ValidationMessage For="()=>UserModel.Address" />
+        </div>
+        <div class="mb-3">
+            <label for="city" class="col-form-label">Şehir</label>
+            <InputText  id="city" @bind-Value="@UserModel.City" class="form-control"/>
+            <ValidationMessage For="()=>UserModel.City" />
+        </div>
+        <div class="mb-3">
+            <label for="region" class="col-form-label">İlçe</label>
+            <InputText id="region" @bind-Value="@UserModel.Region" class="form-control" />
+            <ValidationMessage For="()=>UserModel.Region" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+    </EditForm>
+</div>
+
+@code {
+    public RegisterModel UserModel { get; set; } = new RegisterModel();
+
+    private async Task Submit()
+    {
+        var result = await accountService.Register(UserModel);
+        if (result)
+        {
+          
+            navManager.NavigateTo("/");
+        }
+        else
+        {
+            navManager.NavigateTo("/error");
+        }
+
+    }
+}

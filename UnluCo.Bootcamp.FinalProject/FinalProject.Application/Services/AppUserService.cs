@@ -29,7 +29,6 @@ namespace FinalProject.Application.Services
                 var appUser = _mapper.Map<AppUser>(entity);
                 appUser.Id = Guid.NewGuid().ToString();
                 appUser.ActivationKey = Guid.NewGuid();
-                appUser.Phone = appUser.PhoneNumber;
                 appUser.IsActive = true;
                 var result = await _userManager.CreateAsync(appUser,entity.Password);
                 if (result.Succeeded)

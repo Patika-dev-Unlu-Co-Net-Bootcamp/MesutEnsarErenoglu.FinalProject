@@ -74,20 +74,12 @@ namespace FinalProject.Application.DTOs
         [MaxLength(50, ErrorMessage = "50 karakterden fazla olmaz")]
         public string Region { get; set; }
 
-        [JsonPropertyName("phone")]
-        [Required]
-        [MaxLength(50, ErrorMessage = "50 karakterden fazla olamaz")]
-        [Phone]
-        public string Phone { get; set; }
+       
 
         [JsonPropertyName("birthdate")]
         [Required(ErrorMessage = "Doğum tarihi giriş yapmanız gereklidir!")]
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
-
-        [JsonPropertyName("gender")]
-        [Required]
-        public bool? Gender { get; set; }
 
         private short _age;
 

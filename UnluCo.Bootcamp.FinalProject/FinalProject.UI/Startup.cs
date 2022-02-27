@@ -1,16 +1,12 @@
+using Blazored.LocalStorage;
 using FinalProject.UI.Data;
+using FinalProject.UI.Services;
+using FinalProject.UI.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace FinalProject.UI
 {
@@ -28,9 +24,12 @@ namespace FinalProject.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
+            
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddBlazoredLocalStorage();
             services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<IAccountClientService, AccountClientService>();
             
         }
 

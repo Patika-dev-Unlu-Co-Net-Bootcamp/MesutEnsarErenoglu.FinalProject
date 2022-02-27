@@ -48,17 +48,9 @@ namespace FinalProject.Domain.Entities
         [MaxLength(50, ErrorMessage = "50 karakterden fazla olmaz")]
         public string Region { get; set; }
 
-        [Required]
-        [MaxLength(50, ErrorMessage = "50 karakterden fazla olamaz")]
-        [Phone]
-        public string Phone { get; set; }
-
         [Required(ErrorMessage = "Doğum tarihi giriş yapmanız gereklidir!")]
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
-
-        [Required]
-        public bool? Gender { get; set; }
 
         private short _age;
 
