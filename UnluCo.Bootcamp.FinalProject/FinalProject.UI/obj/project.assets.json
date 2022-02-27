@@ -63,6 +63,18 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Microsoft.AspNetCore.Blazor.HttpClient/3.2.0-preview3.20168.3": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "4.7.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Blazor.HttpClient.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Blazor.HttpClient.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.14": {
         "type": "package",
         "compile": {
@@ -2867,6 +2879,20 @@
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
         "microsoft.aspnetcore.authentication.jwtbearer.5.0.14.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Blazor.HttpClient/3.2.0-preview3.20168.3": {
+      "sha512": "6J1vBdhSnGW53BQsKeIjI8algTQdW8+Dnx/R9eZ/ldhtY8mx2KXOSkEVr7Tb0xwg5OM5+rHZS+PuzIv1nuvDCg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.blazor.httpclient/3.2.0-preview3.20168.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Blazor.HttpClient.dll",
+        "microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
+        "microsoft.aspnetcore.blazor.httpclient.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.14": {
@@ -8879,7 +8905,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "FinalProject.WebApi >= 1.0.0"
+      "FinalProject.WebApi >= 1.0.0",
+      "Microsoft.AspNetCore.Blazor.HttpClient >= 3.2.0-preview3.20168.3"
     ]
   },
   "packageFolders": {
@@ -8924,6 +8951,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Blazor.HttpClient": {
+            "target": "Package",
+            "version": "[3.2.0-preview3.20168.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

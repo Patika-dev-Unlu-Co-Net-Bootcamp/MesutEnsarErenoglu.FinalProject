@@ -1,0 +1,66 @@
+﻿@page "/subcategory/{id}"
+@inject IHttpClientFactory ClientFactory
+
+<h3>SubCategory</h3>
+
+@if (subCategoryDto == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (getCategoryDtoError)
+{
+    <p>Unable to get Categories. Please try again later.</p>
+}
+else
+{
+    <ul>
+        <li>@subCategoryDto.SubCategoryName</li>
+        @if (subCategoryDto.Products == null)
+        {
+            <li><em>Loading...</em></li>
+        }
+        else
+        {
+            @foreach (var item in subCategoryDto.Products)
+            {
+                <li><a href="/subcategory/@item.Id">@item.ProductName</a></li>
+            }
+        }
+    </ul>
+}
+
+@code {
+    private SubCategoryDto subCategoryDto;
+    private bool shouldRender;
+    private bool getCategoryDtoError;
+
+    [Parameter]
+    public string Id { get; set; }
+
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+
+        var url = "https://localhost:44353/api/subcategories/" + $"{Id}";
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        url);
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            using var responseStream = await response.Content.ReadAsStreamAsync();
+            subCategoryDto = await JsonSerializer.DeserializeAsync
+                <SubCategoryDto>(responseStream);
+        }
+        else
+        {
+            getCategoryDtoError = true;
+        }
+
+        shouldRender = true;
+    }
+}

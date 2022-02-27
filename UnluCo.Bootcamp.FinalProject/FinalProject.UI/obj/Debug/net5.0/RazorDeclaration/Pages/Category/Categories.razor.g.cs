@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace FinalProject.UI.Pages
+namespace FinalProject.UI.Pages.Category
 {
     #line hidden
     using System;
@@ -82,6 +82,35 @@ using FinalProject.UI.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using FinalProject.Application.DTOs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using System.Text.Json.Serialization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using System.Net.Http.Json;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/categories")]
     public partial class Categories : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -89,6 +118,45 @@ using FinalProject.UI.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 24 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Pages\Category\Categories.razor"
+       
+    private List<CategoryDto> categoryDtos;
+    private bool shouldRender;
+    private bool getCategoryDtosError;
+
+
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient();
+
+        var request = new HttpRequestMessage(HttpMethod.Get,
+        "https://localhost:44353/api/categories/getallactive");
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            using var responseStream = await response.Content.ReadAsStreamAsync();
+            categoryDtos = await JsonSerializer.DeserializeAsync
+                <List<CategoryDto>>(responseStream);
+        }
+        else
+        {
+            getCategoryDtosError = true;
+        }
+
+        shouldRender = true;
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpClientFactory ClientFactory { get; set; }
     }
 }
 #pragma warning restore 1591

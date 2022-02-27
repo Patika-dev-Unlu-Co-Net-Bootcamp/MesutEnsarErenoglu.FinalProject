@@ -12,7 +12,7 @@ namespace FinalProject.WebApi.Controllers
 {
     [Route("api/subcategories")]
     [ApiController]
-    [Authorize]
+   
     public class SubCategoryController : ControllerBase
     {
         private readonly ISubCategoryService _subCategoryService;

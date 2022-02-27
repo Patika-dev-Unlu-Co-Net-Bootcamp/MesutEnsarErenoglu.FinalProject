@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4gcDxj+HsAp1HAv42qlXjKSpJDuWxsbZ+jGumazjGbsuHjDWHAx4lJ3DGuNl9tIHq9RtFmXmN+PaH1xUEOOiaQ==",
+  "dgSpecHash": "JmIA8KgS6ScOH3by0pHMaShBvFZ+ongd4wy73KSeJUYIUsjHygHpnqpmNAHUZrY3E/a/HVLjC2p6NN58EPnfHQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\o_nea\\source\\repos\\Patika-dev-Unlu-Co-Net-Bootcamp\\MesutEnsarErenoglu.FinalProject\\UnluCo.Bootcamp.FinalProject\\FinalProject.UI\\FinalProject.UI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\o_nea\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.14\\microsoft.aspnetcore.authentication.jwtbearer.5.0.14.nupkg.sha512",
+    "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.aspnetcore.blazor.httpclient\\3.2.0-preview3.20168.3\\microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.14\\microsoft.aspnetcore.cryptography.internal.5.0.14.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.14\\microsoft.aspnetcore.cryptography.keyderivation.5.0.14.nupkg.sha512",
     "C:\\Users\\o_nea\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
