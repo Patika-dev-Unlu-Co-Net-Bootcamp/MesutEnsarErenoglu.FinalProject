@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{74EFD0F9-571
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{7704614A-E9F6-41AB-87AA-C187E1B0F1B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject.UI", "FinalProject.UI\FinalProject.UI.csproj", "{461BD5CA-EDE5-4C27-898D-2312FEDEAB0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinalProject.UI", "FinalProject.UI\FinalProject.UI.csproj", "{461BD5CA-EDE5-4C27-898D-2312FEDEAB0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,10 +2,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalProject.Common.RabbitMQ
 {
@@ -16,7 +13,7 @@ namespace FinalProject.Common.RabbitMQ
             var factory = new ConnectionFactory();
             factory.Uri = new Uri("amqps://qfznqsyq:y6jS2z9QcHaiqzPpPwQctHwZaemXJqY6@beaver.rmq.cloudamqp.com/qfznqsyq");
 
-            using var connection = factory.CreateConnection();
+            var connection = factory.CreateConnection();
 
             var channel = connection.CreateModel();
 

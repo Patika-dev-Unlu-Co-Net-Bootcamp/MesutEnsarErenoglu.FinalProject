@@ -237,14 +237,14 @@ namespace FinalProject.Application.Services
             }
         }
 
-        public async Task<Guid> GetUsersKey(string email)
+        public async Task<string> GetUsersKey(string email)
         {
             try
             {
                 var user = await _userManager.FindByEmailAsync(email);
                 if (user != null)
                 {
-                    return user.ActivationKey;
+                    return user.ActivationKey.ToString();
                 }
                 throw new InvalidOperationException("Böyle bir kullanıcı bulunamadı!");
             }

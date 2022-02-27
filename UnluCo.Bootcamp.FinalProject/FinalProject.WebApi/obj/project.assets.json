@@ -2762,6 +2762,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Microsoft.Extensions.Hosting": "6.0.1",
           "RabbitMQ.Client": "6.2.4"
         },
         "compile": {

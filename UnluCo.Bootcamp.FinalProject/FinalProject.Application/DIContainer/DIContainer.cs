@@ -3,6 +3,7 @@ using FinalProject.Application.Interfaces;
 using FinalProject.Application.Mapping;
 using FinalProject.Application.Services;
 using FinalProject.Application.Token;
+using FinalProject.Common.Backgroundservice;
 using FinalProject.Domain.Entities;
 using FinalProject.Domain.Interfaces;
 using FinalProject.Infrastructure.Context;
@@ -87,7 +88,10 @@ namespace FinalProject.Application.DIContainer
 
             services.AddScoped<TokenGenerator>();
 
+            services.AddHostedService<ConsumeandSendEmailBackgroundService>();
+
             services.AddAutoMapper(typeof(MappingProfile));
+
 
             return services;
         }

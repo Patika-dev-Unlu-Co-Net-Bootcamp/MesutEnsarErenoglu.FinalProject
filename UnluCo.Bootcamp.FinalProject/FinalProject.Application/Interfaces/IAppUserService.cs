@@ -20,7 +20,7 @@ namespace FinalProject.Application.Interfaces
         List<AppUserDto> GetAllActive();
         Task<bool> CheckPassword(string email, string password);
         Task<bool> ChangePassword(string email, string newPassword);
-        Task<Guid> GetUsersKey(string email);
+        Task<string> GetUsersKey(string email);
 
 
     }

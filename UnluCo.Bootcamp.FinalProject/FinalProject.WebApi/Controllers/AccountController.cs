@@ -53,16 +53,16 @@ namespace FinalProject.WebApi.Controllers
                     await _userService.Add(newUser);
 
                     EmailModel emailModel = new EmailModel();
-                    emailModel.SenderEmail = "ensarerenoglu@hotmail.com";
+                    emailModel.SenderEmail = "unlucofinalprojectmee@gmail.com";
                     emailModel.ReceiverEmail = newUser.Email;
-                    emailModel.SenderTitle = "Site";
+                    emailModel.SenderTitle = "UnluCoFinalProject";
                     emailModel.Subject = "Sitemize Hoşgeldiniz!";
                     emailModel.Body = $"Sayın {newUser.FullName}, Üyeliğiniz başarıyla gerçekleştirilmiş olup iyi alışverişler dileriz.";
                     RabbitMQReceiver rabbitMQReceiver = new RabbitMQReceiver();
                     rabbitMQReceiver.Send(emailModel);
 
                     return Ok("Kullanıcı kaydı başarılı!");
-                    // Todo : Kullanıcıya başarılı maili gönder
+                    
                 }
                 return BadRequest(userModel);
             }
@@ -75,8 +75,6 @@ namespace FinalProject.WebApi.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginUserModel userModel)
         {
-            RabbitMQConsumer rabbitMQConsumer = new RabbitMQConsumer();
-            rabbitMQConsumer.Consume();
             try
             {
                 if (ModelState.IsValid)
@@ -110,8 +108,20 @@ namespace FinalProject.WebApi.Controllers
                 var result = await _userService.AnybyEmail(email);
                 if (result)
                 {
-                    var key = _userService.GetUsersKey(email);
-                    // Todo: Send User Email https://localhost:44353/api/accounts/changepassword/{key}
+                    string key = await _userService.GetUsersKey(email);
+
+                    EmailModel emailModel = new EmailModel();
+                    emailModel.SenderEmail = "unlucofinalprojectmee@gmail.com";
+                    emailModel.ReceiverEmail = email;
+                    emailModel.SenderTitle = "UnluCoFinalProject";
+                    emailModel.Subject = "Şifre Yenileme";
+                    emailModel.Body =  
+                        $"Sayın üyemiz, şifrenizi yenilemek için bağlantıya tıklayınız https://localhost:44353/api/accounts/changepassword/" + $"{key}";
+                    RabbitMQReceiver rabbitMQReceiver = new RabbitMQReceiver();
+                    rabbitMQReceiver.Send(emailModel);
+
+
+                    // Todo: Send User Email 
                 }
                 return Ok();
             }
