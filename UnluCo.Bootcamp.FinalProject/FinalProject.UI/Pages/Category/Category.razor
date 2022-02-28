@@ -1,8 +1,6 @@
 ﻿@page "/category/{id}"
-@inject IHttpClientFactory ClientFactory
-@inject ProtectedLocalStorage localStorage
+@inject ICategoryClientService categoryService
 
-<h3>Category</h3>
 @if (categoryDto == null)
 {
     <p><em>Loading...</em></p>
@@ -23,7 +21,7 @@ else
         {
             @foreach (var item in categoryDto.SubCategories)
             {
-                <li><a href="/subcategory/@item.Id">@item.SubCategoryName</a></li>
+                <li><a href="/subcategory/@item.Id"><SubCategory Id="@item.Id.ToString()" /></a></li>
             }
         }
     </ul>
@@ -42,25 +40,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var client = ClientFactory.CreateClient();
-
-        var url = "https://localhost:44353/api/categories/" + $"{Id}";
-        var request = new HttpRequestMessage(HttpMethod.Get,
-        url);
-
-        var token = await localStorage.GetAsync<string>("token");
-
-        request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
-
-        var response = await client.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
-            using var responseStream = await response.Content.ReadAsStreamAsync();
-            categoryDto = await JsonSerializer.DeserializeAsync
-                <CategoryDto>(responseStream);
-        }
-        else
+        categoryDto = await categoryService.GetbyId(Convert.ToInt32(Id));
+        if (categoryDto == null)
         {
             getCategoryDtoError = true;
         }

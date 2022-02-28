@@ -12,7 +12,7 @@ namespace FinalProject.WebApi.Controllers
 {
     [Route("api/subcategories")]
     [ApiController]
-   
+    [Authorize]
     public class SubCategoryController : ControllerBase
     {
         private readonly ISubCategoryService _subCategoryService;
@@ -63,7 +63,6 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSubCategoryById(int id)
         {

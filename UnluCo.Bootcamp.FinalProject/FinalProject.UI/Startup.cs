@@ -30,6 +30,10 @@ namespace FinalProject.UI
             services.AddBlazoredLocalStorage();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IAccountClientService, AccountClientService>();
+            services.AddScoped<ICategoryClientService, CategoryClientService>();
+            services.AddScoped<ISubCategoryClientService, SubCategoryClientService>();
+            services.AddScoped<IBrandClientService, BrandClientService>();
+            services.AddScoped<IColorClientService, ColorClientService>();
             
         }
 

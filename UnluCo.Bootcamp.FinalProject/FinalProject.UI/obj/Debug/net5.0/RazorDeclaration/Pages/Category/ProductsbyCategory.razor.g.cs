@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace FinalProject.UI.Pages.Account
+namespace FinalProject.UI.Pages.Category
 {
     #line hidden
     using System;
@@ -152,40 +152,13 @@ using FinalProject.UI.Services;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class ProductsbyCategory : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 28 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Pages\Account\Login.razor"
-       
-    public LoginUserModel UserModel { get; set; } = new LoginUserModel();
-
-    private async Task Submit()
-    {
-        var result = await accountService.Login(UserModel);
-
-        if (result)
-        {
-
-            navManager.NavigateTo("/");
-        }
-        else
-        {
-            navManager.NavigateTo("/error");
-        }
-
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAccountClientService accountService { get; set; }
     }
 }
 #pragma warning restore 1591
