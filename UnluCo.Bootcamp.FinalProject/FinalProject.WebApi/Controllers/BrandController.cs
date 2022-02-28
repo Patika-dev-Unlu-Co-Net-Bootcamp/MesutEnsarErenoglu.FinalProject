@@ -85,7 +85,7 @@ namespace FinalProject.WebApi.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public async Task<IActionResult> DeleteBrand(int id)
         {
             try

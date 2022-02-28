@@ -8,8 +8,7 @@ namespace FinalProject.UI.RequestOperations
     public interface IApiCallService
     {
         Task<HttpResponseMessage> Get(string url);
-        Task<HttpResponseMessage> Put();
-        Task<HttpResponseMessage> Delete();
+        Task<HttpResponseMessage> Delete(string url);
 
     }
 }

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace FinalProject.UI.Shared
+namespace FinalProject.UI.Pages.Product
 {
     #line hidden
     using System;
@@ -159,13 +159,59 @@ using FinalProject.WebApi.Models.Product;
 #line default
 #line hidden
 #nullable disable
-    public partial class MainLayout : LayoutComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/addnewproduct")]
+    public partial class AddNewProduct : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 99 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Pages\Product\AddNewProduct.razor"
+       
+    private bool shouldRender;
+    private bool getError;
+
+
+    public AddProductClientModel newProduct { get; set; } = new AddProductClientModel();
+
+    public List<SubCategoryDto> subCategories { get; set; }
+
+    public List<ColorDto> Colors { get; set; }
+    public List<BrandDto> Brands { get; set; }
+
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        subCategories = await subcategoryService.GetAllActive();
+        StateHasChanged();
+        
+        Colors = await colorService.GetAllActive();
+        StateHasChanged();
+
+        Brands = await brandService.GetAllActive();
+        StateHasChanged();
+
+    }
+
+    private void Submit()
+    {
+
+    }
+
+
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IColorClientService colorService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IBrandClientService brandService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ISubCategoryClientService subcategoryService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductClientService productService { get; set; }
     }
 }
 #pragma warning restore 1591

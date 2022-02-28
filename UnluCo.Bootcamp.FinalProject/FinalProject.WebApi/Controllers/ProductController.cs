@@ -128,7 +128,7 @@ namespace FinalProject.WebApi.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             try
@@ -279,7 +279,7 @@ namespace FinalProject.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateColor(int id, [FromBody] UpdateProductModel productModel)
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductModel productModel)
         {
             try
             {

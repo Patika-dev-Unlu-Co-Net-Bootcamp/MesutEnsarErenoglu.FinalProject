@@ -17,9 +17,20 @@ namespace FinalProject.UI.RequestOperations
             _httpClientFactory = httpClientFactory;
             _localStorage = localStorage;
         }
-        public Task<HttpResponseMessage> Delete()
+        public async Task<HttpResponseMessage> Delete(string url)
         {
-            throw new System.NotImplementedException();
+            var client = _httpClientFactory.CreateClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Delete,
+           url);
+
+            var token = await _localStorage.GetAsync<string>("token");
+
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+
+            var response = await client.SendAsync(request);
+
+            return response;
         }
 
         public async Task<HttpResponseMessage> Get(string url)
@@ -38,7 +49,7 @@ namespace FinalProject.UI.RequestOperations
             return response;
         }
 
-        public Task<HttpResponseMessage> Put()
+        public Task<HttpResponseMessage> MakeInActivePut()
         {
             throw new System.NotImplementedException();
         }

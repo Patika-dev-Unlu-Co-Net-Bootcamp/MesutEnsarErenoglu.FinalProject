@@ -1,6 +1,8 @@
 ﻿using FinalProject.Application.Token;
+using FinalProject.UI.Authentication;
 using FinalProject.UI.Services.Interfaces;
 using FinalProject.WebApi.Models.User;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -13,11 +15,13 @@ namespace FinalProject.UI.Services
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ProtectedLocalStorage _localStorage;
+        private readonly AuthenticationStateProvider _authStateProvider;
 
-        public AccountClientService(IHttpClientFactory httpClientFactory, ProtectedLocalStorage localStorage)
+        public AccountClientService(IHttpClientFactory httpClientFactory, ProtectedLocalStorage localStorage, AuthenticationStateProvider authStateProvider)
         {
             _httpClientFactory = httpClientFactory;
             _localStorage = localStorage;
+            _authStateProvider = authStateProvider;
         }
         public async Task<bool> ChangeUserPassword(string key, ChangeUserPassword userModel)
         {
@@ -68,13 +72,35 @@ namespace FinalProject.UI.Services
                 await _localStorage.SetAsync("tokenExpiration", result.TokenExpiration);
                 await _localStorage.SetAsync("tokenRefreshToken", result.RefreshToken);
                 await _localStorage.SetAsync("tokenRefreshTokenExpiration", result.RefreshTokenExpireDate);
-
+                ((AuthStateProvider)_authStateProvider).NotifyUserAuthentication(result.AccessToken);
                 client.DefaultRequestHeaders.Authorization =
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", result.AccessToken);
 
                 return true;
             }
             return false;
+        }
+
+        public async Task<bool> Logout()
+        {
+
+            try
+            {
+                await _localStorage.DeleteAsync("token");
+                await _localStorage.DeleteAsync("tokenExpiration");
+                await _localStorage.DeleteAsync("tokenRefreshToken");
+                await _localStorage.DeleteAsync("tokenRefreshTokenExpiration");
+                ((AuthStateProvider)_authStateProvider).NotifyUserLogout();
+                var client = _httpClientFactory.CreateClient();
+                client.DefaultRequestHeaders.Authorization = null;
+
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+            
         }
 
         public async Task<bool> Register(RegisterModel registerModel)
@@ -94,5 +120,7 @@ namespace FinalProject.UI.Services
                 return false; 
             }
         }
+
+
     }
 }

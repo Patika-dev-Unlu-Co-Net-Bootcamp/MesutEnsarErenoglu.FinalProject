@@ -71,7 +71,7 @@ namespace FinalProject.WebApi.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public async Task<IActionResult> DeleteUserbyId(string id)
         {
             try
@@ -89,7 +89,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("deletebyemail")]
+        [HttpPut("deletebyemail")]
         public async Task<IActionResult> DeleteUserbyEmail([FromQuery] string email)
         {
             try

@@ -1,0 +1,134 @@
+﻿@page  "/addnewproduct"
+@inject IProductClientService productService
+@inject ISubCategoryClientService subcategoryService
+@inject IBrandClientService brandService
+@inject IColorClientService colorService
+
+<div class="col-sm-6 mx-auto">
+    <h3 class="text-center">
+        Yeni Ürün Ekle
+    </h3>
+    <EditForm Model="@newProduct" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator />
+
+        <div class="mb-3">
+            <label for="productName" class="col-form-label">Ürün Adı</label>
+            <InputText id="productName" @bind-Value="newProduct.ProductName" class="form-control" />
+            <ValidationMessage For="() => newProduct.ProductName" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="description" class="col-form-label">Açıklama</label>
+            <InputText id="description" @bind-Value="newProduct.Description" class="form-control" />
+            <ValidationMessage For="()=>newProduct.Description" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="price" class="col-form-label">Fiyat</label>
+            <InputNumber id="price" type="number" @bind-Value="newProduct.Price" class="form-control" />
+            <ValidationMessage For="()=>newProduct.Price" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="stock" class="col-form-label">Stok Adedi</label>
+            <InputNumber id="stock" type="number" @bind-Value="newProduct.UnitsInStock" class="form-control" />
+            <ValidationMessage For="()=>newProduct.UnitsInStock" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="subCategoryId" class="col-form-label">Kategorisi</label>
+            <InputSelect id="subCategoryId" @bind-Value="newProduct.SubCategoryId" class="form-select">
+                @if (subCategories == null)
+                {
+                    <option>Loading...</option>
+                }
+                else
+                {
+                    foreach (var subCategory in subCategories)
+                    {
+                        <option value="@subCategory.Id">@subCategory.SubCategoryName</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="() => newProduct.SubCategoryId" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="colorId" class="col-form-label">Rengi</label>
+            <InputSelect id="colorId" @bind-Value="newProduct.ColorId" class="form-select">
+                @if (Colors == null)
+                {
+                    <option>Loading...</option>
+                }
+                else
+                {
+                    foreach (var color in Colors)
+                    {
+                        <option value="@color.Id">@color.Name</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="() => newProduct.ColorId" class="invalid-feedback" />
+        </div>
+        <div class="mb-3">
+            <label for="colorId" class="col-form-label">Markası</label>
+            <InputSelect id="colorId" @bind-Value="newProduct.BrandId" class="form-select">
+                @if (Brands == null)
+                {
+                    <option>Loading...</option>
+                }
+                else
+                {
+                    foreach (var brand in Brands)
+                    {
+                        <option value="@brand.Id">@brand.Name</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="() => newProduct.BrandId" class="invalid-feedback" />
+        </div>
+
+
+
+        <div class="mb-3">
+            <label for="isOfferdable" class="form-check-label">Tekliflere açık mı?</label>
+            <InputCheckbox id="isOfferdable" @bind-Value="newProduct.IsOfferdable" class="form-check-input">Teklife açık mı?</InputCheckbox>
+            <ValidationMessage For="()=>newProduct.UnitsInStock" class="invalid-feedback" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ürün Ekle</button>
+    </EditForm>
+</div>
+
+
+@code {
+    private bool shouldRender;
+    private bool getError;
+
+
+    public AddProductClientModel newProduct { get; set; } = new AddProductClientModel();
+
+    public List<SubCategoryDto> subCategories { get; set; }
+
+    public List<ColorDto> Colors { get; set; }
+    public List<BrandDto> Brands { get; set; }
+
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        subCategories = await subcategoryService.GetAllActive();
+        StateHasChanged();
+        
+        Colors = await colorService.GetAllActive();
+        StateHasChanged();
+
+        Brands = await brandService.GetAllActive();
+        StateHasChanged();
+
+    }
+
+    private void Submit()
+    {
+
+    }
+
+
+
+}

@@ -1,8 +1,10 @@
 using Blazored.LocalStorage;
+using FinalProject.UI.Authentication;
 using FinalProject.UI.Data;
 using FinalProject.UI.Services;
 using FinalProject.UI.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,12 +30,15 @@ namespace FinalProject.UI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddBlazoredLocalStorage();
+            services.AddAuthenticationCore();
+            services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IAccountClientService, AccountClientService>();
             services.AddScoped<ICategoryClientService, CategoryClientService>();
             services.AddScoped<ISubCategoryClientService, SubCategoryClientService>();
             services.AddScoped<IBrandClientService, BrandClientService>();
             services.AddScoped<IColorClientService, ColorClientService>();
+            services.AddScoped<IProductClientService, ProductClientService>();
             
         }
 

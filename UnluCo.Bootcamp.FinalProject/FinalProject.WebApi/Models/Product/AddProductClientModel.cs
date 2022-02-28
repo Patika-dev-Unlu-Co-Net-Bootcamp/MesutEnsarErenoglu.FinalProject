@@ -1,14 +1,17 @@
-﻿
-
-using FinalProject.Common.Enums;
+﻿using FinalProject.Common.Enums;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace FinalProject.WebApi.Models.Product
 {
-    public class AddProductModel
+    public class AddProductClientModel
     {
-        [Required(ErrorMessage ="Ürün adı gereklidir!")]
+        [Required(ErrorMessage = "Ürün adı gereklidir!")]
         [MaxLength(100, ErrorMessage = "100 karakterden fazla olamaz!")]
         [JsonPropertyName("productname")]
         public string ProductName { get; set; }
@@ -17,12 +20,12 @@ namespace FinalProject.WebApi.Models.Product
         [MaxLength(500, ErrorMessage = "500 karakterden fazla olamaz!")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage ="Ürün fiyatı gereklidir!")]
+        [Required(ErrorMessage = "Ürün fiyatı gereklidir!")]
         [Range(0.01, 1000000.00, ErrorMessage = "Ürün fiyatı 0'dan büyük olmalıdır.")]
         [JsonPropertyName("price")]
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage ="Ürün stok adedi belirtilmelidir!")]
+        [Required(ErrorMessage = "Ürün stok adedi belirtilmelidir!")]
         [JsonPropertyName("unitsinstock")]
         public short UnitsInStock { get; set; }
 
@@ -49,5 +52,7 @@ namespace FinalProject.WebApi.Models.Product
         [Required(ErrorMessage = "Ürün kullanım durumu belirtilmelidir!")]
         public UsageStatus UsageStatus { get; set; }
 
+        [MaxLength(409600,ErrorMessage ="400kb'den büyük olamaz!")]
+        public IFormFile ImageFile { get; set; }
     }
 }

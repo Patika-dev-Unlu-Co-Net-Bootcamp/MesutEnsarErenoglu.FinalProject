@@ -14,5 +14,7 @@ namespace FinalProject.UI.Services.Interfaces
         //Post
         Task<bool> ChangeUserPassword(string key, ChangeUserPassword userModel);
 
+        Task<bool> Logout();
+
     }
 }

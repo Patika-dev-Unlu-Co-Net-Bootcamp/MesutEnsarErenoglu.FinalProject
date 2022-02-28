@@ -89,7 +89,7 @@ namespace FinalProject.WebApi.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             try

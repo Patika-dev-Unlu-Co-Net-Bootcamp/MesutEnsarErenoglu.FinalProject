@@ -168,3 +168,5 @@ C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.F
 C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\obj\Debug\net5.0\RazorDeclaration\Pages\Account\ForgotPassword.razor.g.cs
 C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\obj\Debug\net5.0\Razor\Pages\Account\ChangePassword.razor.g.cs
 C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\obj\Debug\net5.0\Razor\Pages\Account\ForgotPassword.razor.g.cs
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\obj\Debug\net5.0\RazorDeclaration\Pages\Product\AddNewProduct.razor.g.cs
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\obj\Debug\net5.0\Razor\Pages\Product\AddNewProduct.razor.g.cs

@@ -88,7 +88,7 @@ namespace FinalProject.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public async Task<IActionResult> DeleteSubCategory(int id)
         {
             try
