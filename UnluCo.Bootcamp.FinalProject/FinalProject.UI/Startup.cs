@@ -12,9 +12,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace FinalProject.UI
 {
-    // Todo: User ve Bid servisleri tamamlanacak
+    // Todo: User ve Bid client servisleri tamamlanacak
     // Todo: Product, user ve bid sayfalarý tamamlanacak
-    // Todo: Genel tasarým güncellenecek
+    // Todo: UI Genel tasarým güncellenecek
     
     public class Startup
     {
