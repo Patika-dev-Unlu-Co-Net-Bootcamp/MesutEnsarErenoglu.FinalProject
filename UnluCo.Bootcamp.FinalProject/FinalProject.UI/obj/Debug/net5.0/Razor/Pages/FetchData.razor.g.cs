@@ -157,6 +157,13 @@ using FinalProject.WebApi.Models.Product;
 #line hidden
 #nullable disable
 #nullable restore
+#line 22 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using FinalProject.Common.Enums;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Pages\FetchData.razor"
 using FinalProject.UI.Data;
 

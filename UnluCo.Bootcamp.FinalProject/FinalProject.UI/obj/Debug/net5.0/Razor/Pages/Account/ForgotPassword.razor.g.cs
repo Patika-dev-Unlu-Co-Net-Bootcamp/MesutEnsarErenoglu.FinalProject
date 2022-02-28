@@ -156,6 +156,13 @@ using FinalProject.WebApi.Models.Product;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 22 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using FinalProject.Common.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/accounts/forgotpassword")]
     public partial class ForgotPassword : Microsoft.AspNetCore.Components.ComponentBase
     {

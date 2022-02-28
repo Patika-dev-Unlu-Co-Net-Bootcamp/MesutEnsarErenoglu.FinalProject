@@ -159,6 +159,13 @@ using FinalProject.WebApi.Models.Product;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 22 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using FinalProject.Common.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/addnewproduct")]
     public partial class AddNewProduct : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -168,8 +175,12 @@ using FinalProject.WebApi.Models.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 99 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Pages\Product\AddNewProduct.razor"
+#line 115 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Pages\Product\AddNewProduct.razor"
        
+
+    [CascadingParameter]
+    public Task<AuthenticationState> authenticationStateTask { get; set; }
+
     private bool shouldRender;
     private bool getError;
 
@@ -181,6 +192,17 @@ using FinalProject.WebApi.Models.Product;
     public List<ColorDto> Colors { get; set; }
     public List<BrandDto> Brands { get; set; }
 
+    List<string> UsageStauses = new List<string>()
+    {
+        "Sıfır",
+        "Ambalajı Açılmamış",
+        "Çok Az Kullanılmış",
+        "Az Kullanılmış",
+        "Yıpranmış"
+    };
+
+    public string usageStatus { get; set; } = "";
+
 
     protected override bool ShouldRender() => shouldRender;
 
@@ -188,7 +210,7 @@ using FinalProject.WebApi.Models.Product;
     {
         subCategories = await subcategoryService.GetAllActive();
         StateHasChanged();
-        
+
         Colors = await colorService.GetAllActive();
         StateHasChanged();
 
@@ -197,9 +219,29 @@ using FinalProject.WebApi.Models.Product;
 
     }
 
-    private void Submit()
+    private async Task Submit()
     {
+        switch (usageStatus)
+        {
+            case ("Sıfır"):
+                newProduct.UsageStatus = UsageStatus.Sıfır;
+                break;
+            case ("Ambalajı Açılmamış"):
+                newProduct.UsageStatus = UsageStatus.AmbalajıAçılmamış;
+                break;
+            case ("Çok Az Kullanılmış"):
+                newProduct.UsageStatus = UsageStatus.ÇokAzKullanılmış;
+                break;
+            case ("Az Kullanılmış"):
+                newProduct.UsageStatus = UsageStatus.AzKullanılmış;
+                break;
+            case ("Yıpranmış"):
+                newProduct.UsageStatus = UsageStatus.Yıpranmış;
+                break;
 
+        }
+        var user = (await authenticationStateTask).User;
+        newProduct.AppUserId = user.Identity.Name; // Todo: GetUserId Tamamla
     }
 
 

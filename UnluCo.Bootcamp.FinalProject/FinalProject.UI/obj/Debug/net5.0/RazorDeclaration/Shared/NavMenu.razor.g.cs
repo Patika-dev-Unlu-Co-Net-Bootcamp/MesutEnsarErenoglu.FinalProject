@@ -159,6 +159,13 @@ using FinalProject.WebApi.Models.Product;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 22 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\_Imports.razor"
+using FinalProject.Common.Enums;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -167,7 +174,7 @@ using FinalProject.WebApi.Models.Product;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Shared\NavMenu.razor"
+#line 38 "C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenoglu.FinalProject\UnluCo.Bootcamp.FinalProject\FinalProject.UI\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

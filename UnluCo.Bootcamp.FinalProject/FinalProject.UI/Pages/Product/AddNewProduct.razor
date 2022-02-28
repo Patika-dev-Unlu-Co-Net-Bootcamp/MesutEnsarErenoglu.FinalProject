@@ -83,12 +83,28 @@
             <ValidationMessage For="() => newProduct.BrandId" class="invalid-feedback" />
         </div>
 
-
-
         <div class="mb-3">
             <label for="isOfferdable" class="form-check-label">Tekliflere açık mı?</label>
             <InputCheckbox id="isOfferdable" @bind-Value="newProduct.IsOfferdable" class="form-check-input">Teklife açık mı?</InputCheckbox>
             <ValidationMessage For="()=>newProduct.UnitsInStock" class="invalid-feedback" />
+        </div>
+
+        <div class="mb-3">
+            <label for="usageStatus" class="col-form-label">Kullanım Durumu</label>
+            <InputSelect id="usageStatus" @bind-Value="usageStatus" class="form-select">
+                @if (UsageStauses == null)
+                {
+                    <option>Loading...</option>
+                }
+                else
+                {
+                    foreach (var status in usageStatus)
+                    {
+                        <option value="@status">@status</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="() => newProduct.BrandId" class="invalid-feedback" />
         </div>
 
         <button type="submit" class="btn btn-primary">Ürün Ekle</button>
@@ -97,6 +113,10 @@
 
 
 @code {
+
+    [CascadingParameter]
+    public Task<AuthenticationState> authenticationStateTask { get; set; }
+
     private bool shouldRender;
     private bool getError;
 
@@ -108,6 +128,17 @@
     public List<ColorDto> Colors { get; set; }
     public List<BrandDto> Brands { get; set; }
 
+    List<string> UsageStauses = new List<string>()
+    {
+        "Sıfır",
+        "Ambalajı Açılmamış",
+        "Çok Az Kullanılmış",
+        "Az Kullanılmış",
+        "Yıpranmış"
+    };
+
+    public string usageStatus { get; set; } = "";
+
 
     protected override bool ShouldRender() => shouldRender;
 
@@ -115,7 +146,7 @@
     {
         subCategories = await subcategoryService.GetAllActive();
         StateHasChanged();
-        
+
         Colors = await colorService.GetAllActive();
         StateHasChanged();
 
@@ -124,8 +155,29 @@
 
     }
 
-    private void Submit()
+    private async Task Submit()
     {
+        switch (usageStatus)
+        {
+            case ("Sıfır"):
+                newProduct.UsageStatus = UsageStatus.Sıfır;
+                break;
+            case ("Ambalajı Açılmamış"):
+                newProduct.UsageStatus = UsageStatus.AmbalajıAçılmamış;
+                break;
+            case ("Çok Az Kullanılmış"):
+                newProduct.UsageStatus = UsageStatus.ÇokAzKullanılmış;
+                break;
+            case ("Az Kullanılmış"):
+                newProduct.UsageStatus = UsageStatus.AzKullanılmış;
+                break;
+            case ("Yıpranmış"):
+                newProduct.UsageStatus = UsageStatus.Yıpranmış;
+                break;
+
+        }
+        var user = (await authenticationStateTask).User;
+        newProduct.AppUserId = user.Identity.Name; // Todo: GetUserId Tamamla
 
     }
 
